@@ -1,0 +1,196 @@
+
+<div dir-loader="profil"></div>
+<form
+	name="form"
+	ng-submit="submit(); submitted=true"
+	novalidate
+>
+
+
+	<h3>Mise à jour du Profil</h3>
+
+	<!--  FIRSTNAME -->
+	<div 
+			class="form-group"
+			ng-class="{'has-error' :form.firstname.$invalid && submitted}">
+		<label for="firstname">Adresse Email</label>
+		<input 	type="text"
+				name="firstname"
+		 		class="form-control" 
+		 		id="firstname" 
+		 		ng-model="inputFirstname"
+		 		ng-model-option = "{updateOn:Blur}"
+		 		placeholder="Entrer le prénom"
+		 		ng-minlength="2"
+		 		ng-maxlength="50"
+		 		required>
+
+		 <div 	ng-show="submitted"
+		 		ng-messages="form.firstname.$error"
+		 		ng-messages-include="app/views/messages/errorDefault.html">
+		 	
+		 </div>
+	</div>
+
+	<!--  LASTNAME -->
+	<div 
+			class="form-group"
+			ng-class="{'has-error' :form.lastname.$invalid && submitted}">
+		<label for="lastname">Adresse Email</label>
+		<input 	type="text"
+				name="lastname"
+		 		class="form-control" 
+		 		id="lastname" 
+		 		ng-model="inputLastname"
+		 		ng-model-option = "{updateOn:Blur}"
+		 		placeholder="Entrer le nom"
+		 		ng-minlength="2"
+		 		ng-maxlength="50"
+		 		required>
+
+		 <div 	ng-show="submitted"
+		 		ng-messages="form.lastname.$error"
+		 		ng-messages-include="app/views/messages/errorDefault.html">
+		 	
+		 </div>
+	</div>
+
+	
+	<!--  EMAIL -->
+	<div 
+			class="form-group"
+			ng-class="{'has-error' :form.email.$invalid && submitted}">
+		<label for="email">Adresse Email</label>
+		<input 	type="email"
+				name="email"
+		 		class="form-control" 
+		 		id="email" 
+		 		ng-model="inputEmail"
+		 		ng-model-option = "{updateOn:Blur}"
+		 		placeholder="Entrer l'email"
+		 		required>
+
+		 <div 	ng-show="submitted"
+		 		ng-messages="form.email.$error"
+		 		ng-messages-include="app/views/messages/errorEmail.html">
+		 	
+		 </div>
+	</div>
+
+	<div>
+		<accordion>
+		    <accordion-group is-open="status.open">
+		        <accordion-heading>
+		            Pour modifier le mot de passe (optionnel) <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+		        </accordion-heading>
+    			
+
+				<!-- New PASSWORD -->
+				<div 
+						class="form-group"
+						ng-class="{'has-error' :form.password.$invalid && submitted}">
+					<label for="password">Nouveau Mot de passe</label>
+					<input 	type="password"
+							name="password"
+					 		class="form-control" 
+					 		id="password" 
+					 		ng-model="inputPassword"
+					 		ng-model-option = "{updateOn:Blur}"
+					 		placeholder="Entrer le nouveau Password"
+					 		ng-minlength="5"
+			 				ng-maxlength="15">
+
+					 <div 	ng-show="submitted"
+					 		ng-messages="form.password.$error"
+					 		ng-messages-include="app/views/messages/errorDefault.html">
+					 	
+					 </div>
+				</div>
+
+				<!-- PASSWORD CONFIRM -->
+				<div 
+						class="form-group"
+						ng-class="{'has-error' :inputPassword!==inputPasswordconf && form.passwordconf.$dirty}">
+					<label for="passwordconf">Confirmer le Mot de passe</label>
+					<input 	type="password"
+							name="passwordconf"
+					 		class="form-control" 
+					 		id="password" 
+					 		ng-model="inputPasswordconf"
+					 		ng-model-option = "{updateOn:Blur}"
+					 		placeholder="Confirmer le Password">
+
+					 <div 	ng-show="submitted"
+					 		ng-messages="form.passwordconf.$error"
+					 		ng-messages-include="app/views/messages/errorDefault.html">
+					 		
+					 		<div class="help-block" ng-show="inputPassword!==inputPasswordconf && form.passwordconf.$dirty">
+					 			Les mot de passes ne sont pas identique
+					 		</div>
+					 </div>
+				</div>
+
+
+
+    		</accordion-group>
+	    </accordion>
+    </div>
+
+	<!-- CURRENT PASSWORD -->
+	<div 
+			class="form-group"
+			ng-class="{'has-error' :form.currentpassword.$invalid && submitted}">
+		<label for="currentpassword">Mot de passe actuel</label>
+		<input 	type="password"
+				name="currentpassword"
+			 	class="form-control"
+			 	id="currentpassword" 
+			 	ng-model="inputCurrentPassword"
+			 	ng-model-option="{updateOn:Blur}"
+			 	ng-minlength="2"
+			 	ng-maxlength="20"
+			 	placeholder="Mot de passe"
+			 	required>
+
+		<div 	ng-show="submitted"
+		 		ng-messages="form.currentpassword.$error"
+		 		ng-messages-include="app/views/messages/errorDefault.html">
+		 	
+		 </div>
+	</div>
+
+	<!--  PASSWORD -->
+
+	<!--<div 
+			class="form-group"
+			ng-class="{'has-error' :form.password.$invalid && submitted}">
+		<label for="password">Mot de passe</label>
+		<input 	type="password"
+				name="password"
+			 	class="form-control"
+			 	id="password" 
+			 	ng-model="inputPassword"
+			 	ng-model-option="{updateOn:Blur}"
+			 	ng-minlength="2"
+			 	ng-maxlength="20"
+			 	placeholder="Mot de passe"
+			 	required>
+
+		<div 	ng-show="submitted"
+		 		ng-messages="form.password.$error"
+		 		ng-messages-include="app/views/messages/errorDefault.html">
+		 	
+		 </div>
+	</div>-->
+	<div class="checkbox">
+		<label>
+		  <input
+		  		id="remeber"
+		  		name="remeber"
+		  		ng-model="inputRemember"
+		  		type="checkbox"
+		  		> Se souvenir de moi
+		</label>
+	</div>
+	<button type="submit" class="btn btn-default">Envoyer</button>
+</form>

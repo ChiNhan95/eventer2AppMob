@@ -1,0 +1,66 @@
+<div class="panel" ng-controller="InscriptionCtrl">
+   <h1 style="margin-bottom:10px;">Formulaire d'inscription</h1>
+   <p>Bienvenue sur le site pharmarket.<br/>Veuillez saissir vos informations personnelles :</p>
+
+
+    <!-- FORM ============ -->
+
+    <form name="userForm" ng-submit="submitForm()" novalidate>
+      <div class="form-group" ng-class="{ 'has-error' : userForm.civilite.$invalid && !userForm.civilite.$pristine }">
+          <label>Civilité : </label>
+          <input type="radio" name="civilite" value="M." />M.
+          <input type="radio" name="civilite" value="Mme" />Mme
+       </div>
+
+        <!-- NAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.firstname.$invalid && !userForm.firstname.$pristine }">
+            <label>Nom :</label>
+            <input type="text" name="firstname" class="form-control" ng-model="user.firstname" required>
+            <p ng-show="userForm.firstname.$invalid && !userForm.firstname.$pristine" class="help-block">You firstname is required.<!--<img src="/appv2/www/img/ko_red.jpg">--></p>
+        </div>
+
+        <!-- NAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.lastname.$invalid && !userForm.lastname.$pristine }">
+            <label>Nom :</label>
+            <input type="text" name="lastname" class="form-control" ng-model="user.lastname" required>
+            <p ng-show="userForm.lastname.$invalid && !userForm.lastname.$pristine" class="help-block">You lastname is required.<!--<img src="/appv2/www/img/ko_red.jpg">--></p>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+            <label>Password :</label>
+            <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="3" ng-maxlength="8" required>
+            <p ng-show="userForm.password.$error.minlength" class="help-block">password is too short.</p>
+            <p ng-show="userForm.password.$error.maxlength" class="help-block">password is too long.</p>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <label>Email :</label>
+            <input type="email" name="email" class="form-control" ng-model="user.email" required>
+            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <label>Date de naissance</label>
+            <input type="date" name="anniversaire" ng-model="user.dob" style="width: 168px;">
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <input type="checkbox" name="newsletter" ng-model="user.newsletter" id="newsletter" />
+            <label id="checkboxForm" for="newsletter">S'inscrire à la newsletter</label>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <input type="checkbox" name="partenaire" ng-model="user.partner" id="partenaire" />
+            <label id="checkboxForm" for="partenaire">Recevez les offres de nos partenaires</label>
+        </div>
+
+        <div class="form-submit" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Envoyer</button>
+        </div>
+
+
+
+    </form>
+  </div>

@@ -1,0 +1,40 @@
+<section class="panel">
+    <h4 align="center">Posologie {{name}}</h4>
+
+    <div align="center" id="form" ng-hide="hideshow">
+        <table>
+            <tr>
+                <td><label for="sexe">Sexe</label></td>
+                <td>
+                    <select name="sexe" id="sexe" ng-model="sexe">
+                        <option value="Masculin" selected>Masculin</option>
+                        <option value="Féminin">Féminin</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="sizeM">Taille</label></td>
+                <td>
+                    <input type="number" ng-model="sizeM" id="sizeM" pattern="\d+" class="max" name="sizeM" min="0" max="2" required="true" /><label>m</label>&nbsp;
+                    <input type="number" ng-model="sizeCM" id="sizeCM" pattern="\d+" class="max" name="sizeCM" min="0" max="99" required="true" /><label>cm</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="weight">Poids</label></td>
+                <td><input type="number" id="weight" ng-model="weight" pattern="\d+" class="max" name="weight" min="4" max="200" required="true" /></td>
+            </tr>
+            <tr>
+                <td><label for="old">Age</label></td>
+                <td><input type="number" id="old" ng-model="old" pattern="\d+" class="max" name="old" min="0" max="120" required="true" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="button" ng-click="send()">Envoyer</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="result" ng-model="result" align="center">
+
+    </div>
+
+</section>

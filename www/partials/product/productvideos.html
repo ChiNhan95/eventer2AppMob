@@ -1,0 +1,17 @@
+<section class="panel">
+<h4 align="center">Produit {{nameprod}}</h4>
+
+<div align="center" ng-if="videos.length > 0" ng-repeat="vid in videos">
+	<div class="titleVideo">
+		{{vid.title}}
+	</div>
+	<div class="bacgroundVideo">
+		<iframe type="text/html" ng-src="{{vid.link[0].value | trusted}}" class="video"></iframe>
+	</div>
+</div>
+
+<div align="center" ng-if="videos.length == 0">
+	<h4>Aucune vidéos pour ce produit {{nameprod}}</h4>
+</div>
+
+</section>

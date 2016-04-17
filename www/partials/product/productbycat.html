@@ -1,0 +1,32 @@
+<section class="panel">
+<h4 align="center">Produit {{namecat}}</h4>
+
+<div align="center" ng-repeat="prod in products">
+    <div ng-init="desc = prod.description[0].value"></div>
+    <p><strong>{{ prod.name[0].value }}</strong></p><br>
+    <p><img ng-src="{{api_url}}/images/products/{{prod.id}}/{{prod.id_default_image}} " width="100" height="100"/></p><br>
+    <strong>{{ prod.price | number:2}} €</strong><br>
+    <p ng-bind-html="desc | html"></p>
+
+    <div align="center" ng-if="!prod.idVideos">
+        <span>Aucune vidéos pour ce produit {{ prod.name[0].value }}</span>
+    </div>
+    <div align="center" ng-if="prod.idVideos.length > 0">
+        <a ng-href="#/product/{{ prod.name[0].value }}/videos/{{ prod.idVideos }}">
+            Voir <strong ng-if="prod.idVideos.length == 1">la vidéo</strong>
+                 <strong ng-if="prod.idVideos.length > 1">les vidéos</strong>
+        </a><br>
+    </div>
+
+    <a ng-href="#posologie/product/{{ prod.name[0].value }}/{{ prod.id }}">
+        Calculer une <strong>Posologie</strong>
+    </a><br>
+
+    <div ng-controller="CartController" ng-init="currProd = prod ">
+        <ng-include src="TemplateCart" />
+    </div>
+
+    <hr>
+</div>
+
+</section>
