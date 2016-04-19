@@ -1,8 +1,8 @@
 'use strict';
 
-app.controller('HomeController', function($scope, LocalStorageService, CategoryService){
+app.controller('HomeController', function($scope, LocalStorageService){
 
-    $scope.categories = CategoryService.get().success(
+/*    $scope.categories = CategoryService.get().success(
         function(data){
             var categories = [];
             var i = 0;
@@ -21,5 +21,5 @@ app.controller('HomeController', function($scope, LocalStorageService, CategoryS
             //console.log(categories);
             $scope.categories = categories;
         }
-    );
+    );*/
 });

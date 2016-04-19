@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,6 +21,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       StatusBar.styleDefault();
     }
   });
+})
+
+// Config Whitelist URL
+.config(function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+        'self',
+        'http://localhost/**',
+        '*://www.youtube.com/**',
+        'http://www.youtube.com/embed/**',
+        'https://www.youtube.com/embed/**'
+    ]);
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -76,10 +87,44 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         templateUrl: 'templates/tab-account.html',
         controller: 'AccountCtrl'
       }
-    }
-  });
+    }   
+  })
+  .state('home', {
+    url : '/home',
+        templateUrl : 'partials/home.html',
+        controller  : 'HomeController'
+  })
+  .state('inscription', {
+    url : '/inscription',
+      templateUrl:'partials/inscription.html'
+  })
+  .state('signin', {
+      url: '/user/signin',
+      templateUrl : 'partials/user/userSignin.html',
+      controller  : 'UserSigninController'
+  })
+  .state('profil', {
+      url: '/user/profil',
+      templateUrl : 'partials/user/userProfil.html',
+      controller  : 'UserProfilController'
+  })
+  .state('product', {
+      url : '/product',
+      templateUrl : 'partials/product/view.html',
+      controller  : 'ProductController'
+  })
+  .state('/user/disconnect', {
+      resolve : {
+          execute : function(UserService){
+              UserService.disconnect();
+          }
+      },
+      redirectTo  : '/home'
+  });  
+
+    
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/home');
 
 });
