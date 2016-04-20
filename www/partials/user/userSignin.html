@@ -2,7 +2,7 @@
 
 <div class="panel">
     <h1 style="margin-bottom:10px;">Authentification</h1>
-    <p>Bienvenue sur le site pharmarket.<br/>Veuillez saissir vos informations personnelles :</p>
+    <p>Bienvenue sur Eventer.<br/>Veuillez saisir vos identifiants de connexion:</p>
 
 
     <form
@@ -14,15 +14,15 @@
         <div class="form-group" ng-class="{ 'has-error' : form.email.$invalid && !form.email.$pristine }">
             <label>Email :</label>
             <input type="email" name="email" class="form-control" ng-model="inputEmail" required>
-            <p ng-show="form.email.$invalid && !form.email.$pristine" class="help-block">Enter a valid email.</p>
+            <p ng-show="form.email.$invalid && !form.email.$pristine" class="help-block">Saisissez un email valide.</p>
         </div>
 
         <!-- Password -->
         <div class="form-group" ng-class="{ 'has-error' : form.username.$invalid && !form.username.$pristine }">
-            <label>Password :</label>
+            <label>Mot de passe :</label>
             <input type="password" name="password" class="form-control" ng-model="inputPassword" ng-minlength="3" ng-maxlength="8" required>
-            <p ng-show="form.password.$error.minlength" class="help-block">password is too short.</p>
-            <p ng-show="form.password.$error.maxlength" class="help-block">password is too long.</p>
+            <p ng-show="form.password.$error.minlength" class="help-block">Le mot de passe est trop court.</p>
+            <p ng-show="form.password.$error.maxlength" class="help-block">Le mot de passe est trop long.</p>
         </div>
 
         <div class="form-group" ng-class="{ 'has-error' : form.email.$invalid && !form.email.$pristine }">
