@@ -15,7 +15,7 @@ app.service('UserService', function($http, API_URL, LocalStorageService){
 
 		return $http({
 			method 	: 'GET',
-			url 	: API_URL + '/customers/?display=[id,email,secure_key]&filter[email]=['+params.username+']&filter[passwd]=['+params.password+']&output_format=JSON',
+			url 	: API_URL + '/',
 			cache	: false
 		});
 
@@ -54,7 +54,7 @@ app.service('UserService', function($http, API_URL, LocalStorageService){
 	function get(id){
 		return $http({
 			method	: 'GET',
-			url 	: API_URL + '/customers/?display=[email,firstname,lastname]&filter[id]=[' + id + ']&output_format=JSON',
+			url 	: API_URL + '/api/users',
 			cache	: false
 		})
 	}
@@ -73,40 +73,42 @@ app.service('UserService', function($http, API_URL, LocalStorageService){
         });
     }
 
-    /**
-     * Get XML Customer
-     *
-     * @return HttpPromise
-     */
-    function getUserXML(){
-        return $http({
-            method	: 'GET',
-            url 	: API_URL + '/customers/?schema=synopsis',
-            cache	: false
-        });
-    }
-
+    /*
+    *
+    *s
+    */
 	function create(data){
 
         return $http({
             method	: 'POST',
-            url 	: API_URL + '/customers/?output_format=JSON',
+            url 	: API_URL + '/api/users',
             data 	: data,
             cache	: false
         });
 
 	}
 
-	function update(id, data){
+	function update(data){
 		return $http({
-			method	: 'PATCH',
-			url 	: API_URL + '/users/' + id,
+			method	: 'PUT',
+			url 	: API_URL + '/api/users',
 			data	: data,
 			cache	: false
 		});
 	}
 
+	// desactivate
 	function remove(id){
+
+	}
+
+	// desactivate
+	function addUserToEvent(id){
+
+	}
+
+	// desactivate
+	function deleteUserToEvent(id){
 
 	}
 
@@ -116,9 +118,10 @@ app.service('UserService', function($http, API_URL, LocalStorageService){
 		tokenStorage : tokenStorage,
 		tokenRefresh : tokenRefresh,
 		get     	: get,
-        getUserXML     	: getUserXML,
         getUser     	: getUser,
 		create  	: create,
+		addUserToEvent  	: addUserToEvent,
+		deleteUserToEvent  	: deleteUserToEvent,
 		update  	: update,
 		delete  	: remove
 	});

@@ -34,6 +34,17 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.se
     ]);
 })
 
+
+/**
+ *  Contantes
+ */
+.constant('API_URL', 'http://localhost/prestashop/api')
+.constant('_COOKIE_KEY_PRESTA', 'ROsZpoAIaVEDhzgeBi7HBCMbWfhMZDPK4skfr8CPAqXi9LxB9r8igsef')
+
+.run(function($rootScope, API_URL){
+    $rootScope.API_URL = API_URL;
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states

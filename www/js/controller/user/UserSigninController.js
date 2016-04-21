@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('UserSigninController', function($scope, $location, LocalStorageService, UserService, md5, _COOKIE_KEY_PRESTA){
+app.controller('UserSigninController', function($scope, $location, LocalStorageService, UserService, /*md5,*/ _COOKIE_KEY_PRESTA){
 
 	$scope.inputRemember = true;
 
@@ -8,7 +8,7 @@ app.controller('UserSigninController', function($scope, $location, LocalStorageS
 
 		var params = {
 			username : $scope.inputEmail,
-			password : md5.createHash(_COOKIE_KEY_PRESTA+$scope.inputPassword)
+			password : /*md5.createHash(_COOKIE_KEY_PRESTA+*/$scope.inputPassword/*)*/
 		};
 
 		UserService.connect(params).success(function(data){

@@ -40,7 +40,7 @@ app.config(function($sceDelegateProvider) {
 /**
  *  Contantes
  */
-app.constant('API_URL', 'http://localhost/prestashop/api');
+app.constant('API_URL', 'http://127.0.0.1:8181');
 app.constant('_COOKIE_KEY_PRESTA', 'ROsZpoAIaVEDhzgeBi7HBCMbWfhMZDPK4skfr8CPAqXi9LxB9r8igsef');
 
 app.run(function($rootScope, API_URL){
