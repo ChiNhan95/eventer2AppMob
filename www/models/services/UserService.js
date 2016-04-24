@@ -3,6 +3,41 @@
 app.service('UserService', function($http, API_URL, LocalStorageService){
 
 
+	var Users = [{
+		id : 1,
+	    firstName: 'ev',
+	    lastName : 'enter',
+	    userName : 'eventerUser',
+	    email : 'eventeruse@eventer.com',
+	    password : 'eventer',
+	    isActive : 1,
+	    dateCreated : '2016-04-26 10:00:00',
+	    lastModificationDate : '0000-00-00 00:00:00'
+	},
+	{
+		id : 2,
+	    firstName: 'ev',
+	    lastName : 'enter',
+	    userName : 'eventerAdmin',
+	    email : 'eventeradm@eventer.com',
+	    password : 'eventer',
+	    isActive : 1,
+	    dateCreated : '2016-04-26 10:00:00',
+	    lastModificationDate : '0000-00-00 00:00:00'
+	},
+	{
+		id : 3,
+	    firstName: 'ev',
+	    lastName : 'enter',
+	    userName : 'eventerDev',
+	    email : 'eventerdev@eventer.com',
+	    password : 'eventer',
+	    isActive : 1,
+	    dateCreated : '2016-04-26 10:00:00',
+	    lastModificationDate : '0000-00-00 00:00:00'
+	}];
+
+
 	/**
 	 * Connect User
 	 * @param Object data Object JSON
@@ -37,7 +72,7 @@ app.service('UserService', function($http, API_URL, LocalStorageService){
 			LocalStorageService.save({
 				'refresh' 		: data.refresh_token,
 				'refesh-time'	: Math.round(Date.now()/1000) + data.expires_in
-			});
+			});	
 		}
 	}
 
