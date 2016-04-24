@@ -98,7 +98,7 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.se
         templateUrl: 'templates/tab-account.html',
         controller: 'AccountCtrl'
       }
-    }   
+    }
   })
   .state('home', {
     url : '/home',
@@ -124,6 +124,11 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.se
       templateUrl : 'partials/product/view.html',
       controller  : 'ProductController'
   })
+  .state('event', {
+        url : '/addEvent',
+        templateUrl : 'partials/event/view.html',
+        controller  : 'eventController'
+    })
   .state('/user/disconnect', {
       resolve : {
           execute : function(UserService){
@@ -131,9 +136,9 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.se
           }
       },
       redirectTo  : '/home'
-  });  
+  });
 
-    
+
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home');

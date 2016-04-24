@@ -1,0 +1,57 @@
+<ion-view view-title="Ajout d'un évènement">
+  <ion-content class="padding">
+
+    <div class="panel">
+      <h1 style="margin-bottom:10px;">Création d'un évenement</h1>
+      <p>Veuillez entrer les informations relatives à l'évenement :</p>
+
+
+      <form
+        name="addEvent"
+        ng-submit="submit(); submitted=true"
+        novalidate
+        >
+        <!-- event name -->
+        <div class="form-group" ng-class="{ 'has-error' : form.name.$invalid && !form.name.$pristine }">
+          <label>Nom de l'évenement :</label>
+          <input type="text" name="name" class="form-control" ng-model="inputName" ng-minlength="5" required>
+          <p ng-show="form.name.$error.minlength" class="help-block">Le nom est trop court.</p>
+
+        </div>
+
+        <!-- budget estimated -->
+        <div class="form-group" ng-class="{ 'has-error' : form.estimatedBudget.$invalid && !form.estimatedBudget.$pristine }">
+          <label>Budget estimé :</label>
+          <input type="number" name="estimatedBudget" min="1" class="form-control" ng-model="inputEstimatedBudget" required>€
+        </div>
+
+        <!-- starting Date -->
+        <div class="form-group" ng-class="{ 'has-error' : form.startingDate.$invalid && !form.startingDate.$pristine }">
+          <label>Date de début :</label>
+          <input type="date" name="startingDate" class="form-control" ng-model="inputStartingDate" required>
+        </div>
+
+        <!-- ending Date -->
+        <div class="form-group" ng-class="{ 'has-error' : form.endingDate.$invalid && !form.endingDate.$pristine }">
+          <label>Date de fin :</label>
+          <input type="date" name="endingDate" class="form-control" ng-model="inputEndingDate" required>
+        </div>
+
+        <!-- event description -->
+        <div class="form-group" ng-class="{ 'has-error' : form.description.$invalid && !form.description.$pristine }">
+          <label>Description de l'évenement :</label>
+          <input type="text" name="description" class="form-control" ng-model="inputDescription" ng-minlength="5" required>
+          <p ng-show="form.name.$error.minlength" class="help-block">Le desc est trop court.</p>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : form.remember.$invalid && !form.remember.$pristine }">
+          <input type="checkbox" name="remember" id="remember" ng-model="inputRemember" />
+          <label id="checkboxForm" for="remember">Se souvenir de moi</label>
+        </div>
+
+        <button type="submit" class="btn btn-default">Envoyer</button>
+      </form>
+
+    </div>
+
+  </ion-content>
+</ion-view>
