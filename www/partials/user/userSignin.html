@@ -1,40 +1,36 @@
-<ion-view view-title="Accueil">
-<ion-content class="padding">
-
-    <div class="panel">
-        <h1 style="margin-bottom:10px;">Connexion</h1>
-        <p>Bienvenue dans Eventer.<br/>Veuillez saissir vos identifiants de connexion :</p>
 
 
-        <form
-            name="form"
-            ng-submit="submit(); submitted=true"
-            novalidate
-        >
+<div class="panel">
+    <h1 style="margin-bottom:10px;">Authentification</h1>
+    <p>Bienvenue sur Eventer.<br/>Veuillez saisir vos identifiants de connexion:</p>
 
-            <div class="form-group" ng-class="{ 'has-error' : form.email.$invalid && !form.email.$pristine }">
-                <label>Email :</label>
-                <input type="email" name="email" class="form-control" ng-model="inputEmail" required>
-                <p ng-show="form.email.$invalid && !form.email.$pristine" class="help-block">Entrer un email valide.</p>
-            </div>
 
-            <!-- Password -->
-            <div class="form-group" ng-class="{ 'has-error' : form.username.$invalid && !form.username.$pristine }">
-                <label>mot de passe :</label>
-                <input type="password" name="password" class="form-control" ng-model="inputPassword" ng-minlength="3" ng-maxlength="8" required>
-                <p ng-show="form.password.$error.minlength" class="help-block">le mot de passe est trop court.</p>
-                <p ng-show="form.password.$error.maxlength" class="help-block">le mot de passe est trop long.</p>
-            </div>
+    <form
+        name="form"
+        ng-submit="submit(); submitted=true"
+        novalidate
+    >
 
-            <div class="form-group" ng-class="{ 'has-error' : form.email.$invalid && !form.email.$pristine }">
-                <input type="checkbox" name="remember" id="remember" ng-model="inputRemember" />
-                <label id="checkboxForm" for="remember">Se souvenir de moi</label>
-            </div>
+        <div class="form-group" ng-class="{ 'has-error' : form.email.$invalid && !form.email.$pristine }">
+            <label>Email :</label>
+            <input type="email" name="email" class="form-control" ng-model="inputEmail" required>
+            <p ng-show="form.email.$invalid && !form.email.$pristine" class="help-block">Saisissez un email valide.</p>
+        </div>
 
-            <button type="submit" class="btn btn-default">Envoyer</button>
-        </form>
+        <!-- Password -->
+        <div class="form-group" ng-class="{ 'has-error' : form.username.$invalid && !form.username.$pristine }">
+            <label>Mot de passe :</label>
+            <input type="password" name="password" class="form-control" ng-model="inputPassword" ng-minlength="3" ng-maxlength="8" required>
+            <p ng-show="form.password.$error.minlength" class="help-block">Le mot de passe est trop court.</p>
+            <p ng-show="form.password.$error.maxlength" class="help-block">Le mot de passe est trop long.</p>
+        </div>
 
-    </div>
+        <div class="form-group" ng-class="{ 'has-error' : form.email.$invalid && !form.email.$pristine }">
+            <input type="checkbox" name="remember" id="remember" ng-model="inputRemember" />
+            <label id="checkboxForm" for="remember">Se souvenir de moi</label>
+        </div>
 
-</ion-content>
-</ion-view>
+        <button type="submit" class="btn btn-default">Envoyer</button>
+    </form>
+
+</div>
