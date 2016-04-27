@@ -129,6 +129,11 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.se
         templateUrl : 'partials/event/view.html',
         controller  : 'eventController'
     })
+  .state('event-user', {
+      url : '/event/:idEvent/addUser',
+      templateUrl : 'partials/user/eventAddUser.html',
+      controller  : 'EventAddUserController'
+  })
   .state('/user/disconnect', {
       resolve : {
           execute : function(UserService){

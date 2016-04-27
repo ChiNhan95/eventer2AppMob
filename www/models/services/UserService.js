@@ -35,6 +35,17 @@ app.service('UserService', function($http, API_URL, LocalStorageService){
 	    isActive : 1,
 	    dateCreated : '2016-04-26 10:00:00',
 	    lastModificationDate : '0000-00-00 00:00:00'
+	},
+	{
+		id : 3,
+	    firstName: 'ev',
+	    lastName : 'enter',
+	    userName : 'eventerDev',
+	    email : 'eventerdev@eventer.com',
+	    password : 'eventer',
+	    isActive : 1,
+	    dateCreated : '2016-04-26 10:00:00',
+	    lastModificationDate : '0000-00-00 00:00:00'
 	}];
 
 
@@ -132,6 +143,31 @@ app.service('UserService', function($http, API_URL, LocalStorageService){
 		});
 	}
 
+	function search(search){
+		return [{
+		id : 3,
+	    firstName: 'ev',
+	    lastName : 'enter',
+	    userName : 'eventerDev',
+	    email : 'eventerdev@eventer.com',
+	    password : 'eventer',
+	    isActive : 1,
+	    dateCreated : '2016-04-26 10:00:00',
+	    lastModificationDate : '0000-00-00 00:00:00'
+		},
+		{
+		id : 2,
+	    firstName: 'ev',
+	    lastName : 'enter',
+	    userName : 'eventerAdmin',
+	    email : 'eventeradm@eventer.com',
+	    password : 'eventer',
+	    isActive : 1,
+	    dateCreated : '2016-04-26 10:00:00',
+	    lastModificationDate : '0000-00-00 00:00:00'
+		}];
+	}
+
 	// desactivate
 	function remove(id){
 
@@ -148,6 +184,9 @@ app.service('UserService', function($http, API_URL, LocalStorageService){
 	}
 
 	return ({
+		getFake : function(){
+			return Users;
+		},
 		connect 	 : connect,
 		disconnect   : disconnect,
 		tokenStorage : tokenStorage,
@@ -156,6 +195,7 @@ app.service('UserService', function($http, API_URL, LocalStorageService){
         getUser     	: getUser,
 		create  	: create,
 		addUserToEvent  	: addUserToEvent,
+		search  	: search,
 		deleteUserToEvent  	: deleteUserToEvent,
 		update  	: update,
 		delete  	: remove

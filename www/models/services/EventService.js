@@ -10,8 +10,8 @@ app.service('EventService', function($http, API_URL){
     budgetReal:  0.00,
     dateStart : '2016-04-26 10:00:00',
     dateEnd : '2016-04-28 10:00:00',
-    description "Week-end a Marseille",
-    isActive 1,
+    description : "Week-end a Marseille",
+    isActive : 1,
     close : 0,
     dateCreated : '2016-04-26 10:00:00',
     lastModificationDate :'0000-00-00 00:00:00'
@@ -23,8 +23,8 @@ app.service('EventService', function($http, API_URL){
     budgetReal:  0.00,
     dateStart : '2016-04-26 10:00:00',
     dateEnd : '2016-04-28 10:00:00',
-    description "Week-end a Nantes Airport",
-    isActive 1,
+    description : "Week-end a Nantes Airport",
+    isActive : 1,
     close : 0,
     dateCreated : '2016-04-26 10:00:00',
     lastModificationDate :'0000-00-00 00:00:00'
@@ -36,8 +36,8 @@ app.service('EventService', function($http, API_URL){
     budgetReal:  0.00,
     dateStart : '2016-04-26 10:00:00',
     dateEnd : '2016-05-15 10:00:00',
-    description "Voyage a New-York",
-    isActive 1,
+    description : "Voyage a New-York",
+    isActive : 1,
     close : 0,
     dateCreated : '2016-04-26 10:00:00',
     lastModificationDate :'0000-00-00 00:00:00'
@@ -49,8 +49,8 @@ app.service('EventService', function($http, API_URL){
     budgetReal:  0.00,
     dateStart : '2016-04-26 10:00:00',
     dateEnd : '2016-05-26 10:00:00',
-    description "Vivance au Pays, Lakalle",
-    isActive 1,
+    description : "Vivance au Pays, Lakalle",
+    isActive : 1,
     close : 0,
     dateCreated : '2016-04-26 10:00:00',
     lastModificationDate :'0000-00-00 00:00:00'
@@ -61,13 +61,14 @@ app.service('EventService', function($http, API_URL){
 	 * @param Int id
 	 * @return HttpPromise
 	 */
-	function get(){
-		return $http({
+	function get(id){
+		/*return $http({
 			method : 'GET',
 			url    : API_URL + '/categories/?display=full&output_format=JSON',
 			cache  : false
-		});
-	}
+		});*/
+	   return events[id];
+    }
 
 	return ({
 		get    : get,

@@ -1,0 +1,23 @@
+<ion-view view-title="Evenement: {{ events.name }}">
+	<ion-subheader-bar>
+		 <h2 class="title">Evenement: {{ events.name }}</h2>
+	</ion-subheader-bar>
+	<ion-content class="padding">
+		<form name="addus" novalidate>
+			<div class="list">
+			  <label class="item item-input">
+			    <input type="text" ng-minlenght="3" name="searchu" class="form-control" ng-change="(searchu.length > 2) ? searchUser(): return" ng-model="searchu" required placeholder="Chercher un utilisateur :">
+			  </label>
+			</div>
+		</form>
+		<ion-list>
+  			<ion-item ng-repeat="user in Users" ng-model="userList">
+   				<a class="item item-icon-left item-icon-right" href="#">
+    				<i class="icon ion-person-add"></i>
+   						{{user.firstName}} {{user.lastName}}
+    				<i class="icon ion-ios-plus-outline"></i>
+  				</a>
+  			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
