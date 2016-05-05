@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+var app = angular.module('starter', ['ionic', 'ngCordovaOauth', 'firebase', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -40,6 +40,7 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.se
  */
 .constant('API_URL', 'http://localhost/prestashop/api')
 .constant('_COOKIE_KEY_PRESTA', 'ROsZpoAIaVEDhzgeBi7HBCMbWfhMZDPK4skfr8CPAqXi9LxB9r8igsef')
+.constant('FirebaseUrl', 'https://ionicle.firebaseio.com/')
 
 .run(function($rootScope, API_URL){
     $rootScope.API_URL = API_URL;

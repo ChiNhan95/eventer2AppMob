@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('UserSigninController', function($scope, $location, LocalStorageService, UserService, /*md5,*/ _COOKIE_KEY_PRESTA){
+app.controller('UserSigninController', function($scope, $state, $firebaseAuth, LocalStorageService, UserService, $ionicPopup, md5, _COOKIE_KEY_PRESTA){
 
 	$scope.inputRemember = true;
 
@@ -8,7 +8,7 @@ app.controller('UserSigninController', function($scope, $location, LocalStorageS
 
 		var params = {
 			username : $scope.inputEmail,
-			password : /*md5.createHash(_COOKIE_KEY_PRESTA+*/$scope.inputPassword/*)*/
+			password : md5.createHash(_COOKIE_KEY_PRESTA+$scope.inputPassword)
 		};
 
 		UserService.connect(params).success(function(data){
@@ -16,8 +16,11 @@ app.controller('UserSigninController', function($scope, $location, LocalStorageS
             if(data.customers){
                 var user = data.customers[0];
             } else {
-                alert('Votre mot de passe ou identifiant est erroné');
-                $location.path('/');
+                $ionicPopup.confirm({
+                    title: 'Invitation',
+                    template: 'Votre mot de passe ou identifiant est erroné'
+                });
+                $state.go('/');
                 return;
 
             }
@@ -32,7 +35,36 @@ app.controller('UserSigninController', function($scope, $location, LocalStorageS
                 });
             }
 
-			$location.path('/');
+			$state.go('/');
 		});
 	}
+
+    var ref = new Firebase("https://torrid-inferno-5605.firebaseio.com");
+
+    $scope.googleLogin = function() {
+        ref.authWithOAuthPopup("google", function(error, authData) {
+          if (error) {
+            console.log("Login Failed!", error);
+          } else {
+            console.log("Authenticated successfully with payload:", authData);
+          }
+        }, {
+          remember: "sessionOnly",
+          scope: "email"
+        });
+    }
+
+    $scope.facebookLogin = function() {
+        ref.authWithOAuthPopup("facebook", function(error, authData) {
+          if (error) {
+            console.log("Login Failed!", error);
+          } else {
+            console.log("Authenticated successfully with payload:", authData);
+          }
+        }, {
+          remember: "sessionOnly",
+          scope: "email,user_likes"
+        });
+    }
+
 });

@@ -6,13 +6,13 @@
 		<form name="addus" novalidate>
 			<div class="list">
 			  <label class="item item-input">
-			    <input type="text" ng-minlenght="3" name="searchu" class="form-control" ng-change="(searchu.length > 2) ? searchUser(): return" ng-model="searchu" required placeholder="Chercher un utilisateur :">
+			    <input type="text" ng-minlenght="3" name="searchu" class="form-control" ng-change="searchUser()" ng-model="searchu" required placeholder="Chercher un utilisateur :">
 			  </label>
 			</div>
 		</form>
 		<ion-list>
-  			<ion-item ng-repeat="user in Users" ng-model="userList">
-   				<a class="item item-icon-left item-icon-right" href="#">
+  			<ion-item ng-repeat="user in Users" ng-model="userList" >
+   				<a class="item item-icon-left item-icon-right" ng-click="sendInvitation({{user}})">
     				<i class="icon ion-person-add"></i>
    						{{user.firstName}} {{user.lastName}}
     				<i class="icon ion-ios-plus-outline"></i>
